@@ -10,7 +10,7 @@ img{
 }
 
 .bg-dois-custom {
-    background-color: rgb(255, 251, 247) !important;
+    background-color: rgb(255, 251, 247);
 }
 
 @keyframes fadeIn {
