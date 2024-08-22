@@ -1,16 +1,14 @@
 function escolher() {
-    let opcao1 = document.getElementById("opcao1").value;
-    let opcao2 = document.getElementById("opcao2").value;
+    const opcao1 = document.getElementById("opcao1").value.trim();
+    const opcao2 = document.getElementById("opcao2").value.trim();
+    const resultadoElement = document.getElementById('resultado');
 
-    let aleatorio = Math.floor(Math.random() * 2) + 1;
+    if (!opcao1 || !opcao2) {
+        resultadoElement.innerHTML = '<div class="alert alert-danger" role="alert">Preencha os dois campos!</div>';
+        return;
+    }
 
-    if (opcao1 === '' || opcao2 === '') {
-        document.getElementById('resultado').innerHTML = '<div class="alert alert-danger" role="alert">Preencha os dois!!!</div>';
-    }
-    else if(aleatorio == 1){
-        document.getElementById('resultado').innerHTML = "<h2 class=\"text-center\">Calabreso escolheu:</h2><br><h4 class=\"text-center fade-in\">" + opcao1 + "</h4>";
-    }
-    else{
-        document.getElementById('resultado').innerHTML = "<h2 class=\"text-center\">Calabreso escolheu:</h2><br><h4 class=\"text-center fade-in\">" + opcao2 + "</h4>";
-    }
+    const escolha = Math.random() < 0.5 ? opcao1 : opcao2;
+
+    resultadoElement.innerHTML = `<h2 class="text-center">Calabreso escolheu:</h2><br><h4 class="text-center fade-in">${escolha}</h4>`;
 }
